@@ -12,3 +12,6 @@ def index(request):
 def contact(request):
     return render(request, 'personal/basic.html', {'content':['If you would like to contact me, please email me',
                                                               'example@gmail.com']})
+
+def transactions(request):
+    return render(request, 'personal/transactions.html')

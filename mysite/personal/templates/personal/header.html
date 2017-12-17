@@ -21,14 +21,12 @@
 		<div class="row">
 			  <div class="col-sm-2">
 				  <br>
-				  <center>
 					<img src="{% static 'img/profile.jpg' %}" class="responsive-img" style='max-height:100px;' alt="face">
-				  </center>
 			  </div>
 			  <div class="col-sm-10">
 				  <br>
 				  <center>
-				  <h3>Programming, Teaching, Entrepreneurship</h3>
+				  <h3>CryptoWallet</h3>
 				  </center>
 			  </div>
 		</div><hr>
@@ -42,18 +40,54 @@
 			<!--<div class="well bs-sidebar affix" id="sidebar" style="background-color:#fff">-->
 			<div class="well bs-sidebar" id="sidebar" style="background-color:#fff">
 			  <ul class="nav nav-pills nav-stacked" style="display:table">
-				<li><a href='/'>Home</a></li>
-				<li><a href='/blog/'>Blog</a></li>
+				<li><a href='/'>Wallets</a></li>
+				<li><a href='/transactions/'>Transactions</a></li>
 				<li><a href='/contact/'>Contact</a></li>
 			  </ul>
 			</div> <!--well bs-sidebar affix-->
+			  <br>
+			  {% block content %}
+			  {% endblock %}
+			  <br><br>
 		  </div> <!--col-sm-2-->
 		  <div class="col-sm-10">
 
 			<div class='container-fluid'>
 			<br><br>
-			   {% block content %}
-			   {% endblock %}
+
+				<img src="{% static 'img/Bitcoin.png' %}" class="responsive-img" style='max-height:300px; max-width: 700px' alt="Bitcoin">
+				<br><br>
+				<p>
+					#BTC
+					Впечатляющее ралли продемонстрировал BTC 1.63% в течении сегодняшнего дня.
+					Теперь мы ожидаем движение бокового характера с небольшим нисходящим уклоном, двигаясь под красной линией сопротивления.
+					Такой ход ценового действия может создать флаг, после формирования которого мы снова пойдем вверх.
+				</p>
+				<br><br>
+				<img src="{% static 'img/Ethereum.png' %}" class="responsive-img" style='max-height:300px; max-width: 700px' alt="Ethereum">
+				<br><br>
+				<p>
+					#ETH
+					Готов выйти за пределы треугольника, в течение нескольких дней может преодолеть отметку 750
+				</p>
+				<br><br>
+				<img src="{% static 'img/Nem.png' %}" class="responsive-img" style='max-height:300px; max-width: 700px' alt="Nem">
+				<br><br>
+				#NEM
+				У этого рынка есть два сценария развития.
+				Первый: мы с данной точки пробиваем сопротивление облака Ichi и Fib 0.786 (первую попытку пробития можно заметить в выделенном желтом круге), и движемся к сопротивлению 4668,
+				пробив которое актив сможет торговаться на более высоких уровнях.
+				Второй: снижение цены до нижнего предела облака Ichi и сопротивления Fib 0.5,
+				после чего следует отскок для попытки преодолеть сопротивление 4668. Следите за нашими обновлениями.
+				<br><br>
+				<img src="{% static 'img/ZCoin.png' %}" class="responsive-img" style='max-height:300px; max-width: 700px' alt="Zcoin">
+				<br><br>
+				#XZC
+				Рынок с неплохой перспективой, но в данный момент создал шаблон H&S , что может указывать на дальнейшее снижение.
+				Поддержка будет по уровням 0.00330 и 0.00315, от которой ожидаем отскок. Если сценарий снижения ценового действия не сработает,
+				и рынок сможет пробить сопротивление 0.00365, то мы получим возможность двигаться к более высоким уровням торговли.
+				В формате трех дней так же можно заметить вероятность снижения на короткий срок, но в долгосрочной перспективе нас могут ждать цели уровней 0.00427, 0.00499, 0.00587 и 0.00749
+				<br><br>
 			</div>
 		  </div>
 		</div>
