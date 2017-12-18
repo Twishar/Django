@@ -5,6 +5,8 @@ from django.db import models
 
 # Create your models here.
 
+#Create model for our post
+
 class Post(models.Model):
     title = models.CharField(max_length = 140)
     body = models.TextField()
@@ -12,3 +14,4 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
