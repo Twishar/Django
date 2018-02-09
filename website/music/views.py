@@ -4,9 +4,24 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.shortcuts import  render, redirect
 from django.contrib.auth import authenticate, login
 from .models import Album
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .serializers import AlbumSerializer
 from django.views.generic import View
 from django.urls import reverse_lazy
 from .forms import UserForm
+
+
+class AlbumList(APIView):
+
+    def get(self, request):
+        album = Album.objects.all()
+        serializer = AlbumSerializer(album, many=True)
+        return Response(serializer.data)
+
+    def post(self):
+        pass
+
 
 class IndexView(generic.ListView):
     template_name = 'music/index.html'

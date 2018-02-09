@@ -8,6 +8,7 @@ from .serializers import StockSerializer
 
 #List all stocks or create a new one
 #stocks/AMZN/
+
 class StockList(APIView):
 
     def get(self, request):
