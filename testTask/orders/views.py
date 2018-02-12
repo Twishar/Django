@@ -1,3 +1,4 @@
+import csv
 
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -12,6 +13,17 @@ from django.urls import reverse_lazy
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
+
+
+@csrf_exempt
+def Search(request, pk):
+    try:
+        order = Order.objects.get(pk=pk)
+    except Order.DoesNotExist:
+        return HttpResponse(status=404)
+
+    if request.method == 'GET':
+        return render(request, 'orders/details', {'order':order})
 
 @csrf_exempt
 def OrderList(request):
@@ -68,6 +80,26 @@ class OrderCreate(CreateView):
     fields = ['internalID', 'orderCreationTime', 'merchantID',
               'status', 'amount', 'currency', 'orderID',
               'orderType', 'orderDescription']
+
+@csrf_exempt
+def OrderCreateFromCSV(request):
+    if request.method == 'POST':
+        with open('media/s.csv', encoding='utf-8') as f:
+            reader = csv.reader(f)
+            for row in reader:
+                _, created = Order.objects.get_or_create(
+                    internalID=row[0],
+                    orderCreationTime=row[1],
+                    merchantID=row[2],
+                    status=row[3],
+                    amount=row[4],
+                    currency=row[5],
+                    orderID=row[6],
+                    orderType=row[7],
+                    orderDescription=row[8],
+                )
+    return HttpResponse('orders/index.html')
+
 
 class DetailView(generic.DetailView):
     model = Order

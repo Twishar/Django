@@ -15,8 +15,11 @@ urlpatterns = [
 
     url(r'^orderInfo/(?P<pk>[0-9]+)/$', views.OrderDetail),
 
-    # /music/album/add/
     url(r'^add/$', views.OrderCreate.as_view(), name='order-add'),
+
+    url(r'^addDB/$', views.OrderCreateFromCSV, name='order-add-DB'),
+
+    url(r'^search/$', views.Search, name='search'),
 
     url(r'admin/', admin.site.urls),
 
