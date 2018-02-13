@@ -25,47 +25,30 @@ def Search(request, pk):
     if request.method == 'GET':
         return render(request, 'orders/details', {'order':order})
 
-@csrf_exempt
-def OrderList(request):
-    if request.method == 'GET':
+
+
+class OrderList(APIView):
+    def get(self, request):
         snippets = Order.objects.all()
         serializer = OrderSerializer(snippets, many=True)
-        return JsonResponse(serializer.data, safe=False)
-
-    elif request.method == 'POST':
-        data = JSONParser().parse(request)
-        serializer = OrderSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status=400)
+        return Response(serializer.data)
 
 
-@csrf_exempt
-def OrderDetail(request, pk):
+
+class OrderDetail(APIView):
     """
     Retrieve, update or delete a code snippet.
     """
-    try:
-        snippet = Order.objects.get(pk=pk)
-    except Order.DoesNotExist:
-        return HttpResponse(status=404)
+    def get(self, request, pk):
+        try:
+            snippet = Order.objects.get(pk=pk)
+        except Order.DoesNotExist:
+            return HttpResponse(status=404)
 
-    if request.method == 'GET':
         serializer = OrderSerializer(snippet)
-        return JsonResponse(serializer.data)
+        return Response(serializer.data)
 
-    elif request.method == 'PUT':
-        data = JSONParser().parse(request)
-        serializer = OrderSerializer(snippet, data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data)
-        return JsonResponse(serializer.errors, status=400)
 
-    elif request.method == 'DELETE':
-        snippet.delete()
-        return HttpResponse(status=204)
 
 
 class IndexView(generic.ListView):
@@ -108,3 +91,10 @@ class DetailView(generic.DetailView):
 class OrderDelete(DeleteView):
     model = Order
     success_url = reverse_lazy('orders:index')
+
+
+class OrderUpdate(UpdateView):
+    model = Order
+    fields = ['internalID', 'orderCreationTime', 'merchantID',
+              'status', 'amount', 'currency', 'orderID',
+              'orderType', 'orderDescription']
