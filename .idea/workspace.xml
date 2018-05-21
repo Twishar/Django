@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9af20b9e-98d6-47be-9141-4c3e0f608711" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/evo_task/evo_task/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/evo_task/evo_task/settings.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/evo_task/evo_task/urls.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/evo_task/evo_task/wsgi.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/evo_task/manage.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/evo_task/notes/serializers.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/evo_task/notes/static/notes/images/background.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/evo_task/notes/static/notes/style.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/evo_task/notes/templates/notes/base.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/evo_task/notes/templates/notes/detail.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/evo_task/notes/templates/notes/form-template.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/evo_task/notes/templates/notes/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/evo_task/notes/templates/notes/note_form.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/evo_task/notes/templates/notes/registration_form.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/evo_task/notes/urls.py" />
-      <change beforePath="$PROJECT_DIR$/.idea/Django.iml" afterPath="$PROJECT_DIR$/.idea/Django.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/website/media/s.csv" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/website/website/settings.py" afterPath="$PROJECT_DIR$/website/website/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -57,7 +38,7 @@
         <entry file="file://$PROJECT_DIR$/evo_task/notes/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="17" column="37" lean-forward="true" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+              <caret line="17" column="37" lean-forward="false" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
               <folding>
                 <element signature="e#1#33#0" expanded="true" />
               </folding>
@@ -69,7 +50,7 @@
         <entry file="file://$PROJECT_DIR$/website/music/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
-              <caret line="17" column="42" lean-forward="true" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+              <caret line="17" column="42" lean-forward="false" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -99,7 +80,7 @@
         <entry file="file://$PROJECT_DIR$/evo_task/notes/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="381">
-              <caret line="33" column="35" lean-forward="true" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="35" />
+              <caret line="33" column="35" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="35" />
               <folding>
                 <element signature="e#1#33#0" expanded="true" />
               </folding>
@@ -111,7 +92,7 @@
         <entry file="file://$PROJECT_DIR$/evo_task/notes/templates/notes/detail.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="324">
-              <caret line="27" column="72" lean-forward="true" selection-start-line="27" selection-start-column="72" selection-end-line="27" selection-end-column="72" />
+              <caret line="27" column="72" lean-forward="false" selection-start-line="27" selection-start-column="72" selection-end-line="27" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -121,7 +102,7 @@
         <entry file="file://$PROJECT_DIR$/evo_task/notes/templates/notes/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
-              <caret line="32" column="33" lean-forward="true" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+              <caret line="32" column="33" lean-forward="false" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -141,7 +122,7 @@
         <entry file="file://$PROJECT_DIR$/evo_task/notes/templates/notes/base.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="234">
-              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -698,7 +679,7 @@
         <state relative-caret-position="270">
           <caret line="15" column="25" lean-forward="false" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -764,7 +745,7 @@
         <state relative-caret-position="18">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="4" selection-end-column="42" />
           <folding>
-            <element signature="e#1#33#0" expanded="true" />
+            <element signature="e#1#33#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -782,7 +763,7 @@
         <state relative-caret-position="270">
           <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="e#1#29#0" expanded="true" />
+            <element signature="e#1#29#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -790,7 +771,7 @@
     <entry file="file://$PROJECT_DIR$/evo_task/notes/templates/notes/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -806,7 +787,7 @@
     <entry file="file://$PROJECT_DIR$/evo_task/notes/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="17" column="37" lean-forward="true" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+          <caret line="17" column="37" lean-forward="false" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
           <folding>
             <element signature="e#1#33#0" expanded="true" />
           </folding>
@@ -816,7 +797,7 @@
     <entry file="file://$PROJECT_DIR$/evo_task/notes/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="381">
-          <caret line="33" column="35" lean-forward="true" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="35" />
+          <caret line="33" column="35" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="35" />
           <folding>
             <element signature="e#1#33#0" expanded="true" />
           </folding>
@@ -834,7 +815,7 @@
     <entry file="file://$PROJECT_DIR$/website/music/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
-          <caret line="17" column="42" lean-forward="true" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+          <caret line="17" column="42" lean-forward="false" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -850,7 +831,7 @@
     <entry file="file://$PROJECT_DIR$/evo_task/notes/templates/notes/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
-          <caret line="32" column="33" lean-forward="true" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+          <caret line="32" column="33" lean-forward="false" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -863,7 +844,7 @@
     <entry file="file://$PROJECT_DIR$/evo_task/notes/templates/notes/detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
-          <caret line="27" column="72" lean-forward="true" selection-start-line="27" selection-start-column="72" selection-end-line="27" selection-end-column="72" />
+          <caret line="27" column="72" lean-forward="false" selection-start-line="27" selection-start-column="72" selection-end-line="27" selection-end-column="72" />
           <folding />
         </state>
       </provider>
