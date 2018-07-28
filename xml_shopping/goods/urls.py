@@ -8,7 +8,9 @@ app_name = 'goods'
 
 urlpatterns = [
     url(r'^$', views.index_view),
-    url(r'simple/', views.simple_upload)
+    url(r'simple/', views.simple_upload),
+    url(r'test_data/', views.test_data),
+    url(r'check_data/', views.check_data),
 ]
 
 if settings.DEBUG:
