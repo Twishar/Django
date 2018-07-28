@@ -32,6 +32,6 @@ def simple_upload(request):
         fs = FileSystemStorage()
         fs.save(myfile1.name, myfile1)
         fs.save(myfile2.name, myfile2)
-        fs.save(myfile2.name, myfile3)
+        fs.save(myfile3.name, myfile3)
         return render(request, 'goods/simple_upload.html')
     return render(request, 'goods/simple_upload.html')
