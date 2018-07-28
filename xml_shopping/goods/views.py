@@ -22,18 +22,24 @@ def simple_upload(request):
 
         tree = ET.parse(myfile1)
         root = tree.getroot()
-        for child in root:
-            print(child.tag, child.attrib)
+        print(root.findall('channel'))
+        dictt = []
+        for channel in root.findall('channel'):
+            for elem in channel.findall('item'):
+                gtin = 0
+                for val in elem.findall('{http://base.google.com/ns/1.0}gtin'):
+                    gtin = val.text
+                title = elem.find('title').text
+                print(gtin, title)
+
         f = TextIOWrapper(myfile2, encoding=request.encoding)
         data = [row for row in csv.reader(f.read().splitlines())]
-        for row in data:
-            # v is every row
-            print(row)
 
-        fs = FileSystemStorage()
-        fs.save(myfile1.name, myfile1)
-        fs.save(myfile2.name, myfile2)
-        fs.save(myfile3.name, myfile3)
+        # Save docs
+        # fs = FileSystemStorage()
+        # fs.save(myfile1.name, myfile1)
+        # fs.save(myfile2.name, myfile2)
+        # fs.save(myfile3.name, myfile3)
         return render(request, 'goods/simple_upload.html')
     return render(request, 'goods/simple_upload.html')
 
