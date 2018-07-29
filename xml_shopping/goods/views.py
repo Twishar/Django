@@ -2,7 +2,10 @@ import csv
 import datetime
 import xml.etree.ElementTree as ET
 
+from ftplib import FTP
 from io import TextIOWrapper
+from django.db.models import F
+
 from goods.models import Goods
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
@@ -16,6 +19,7 @@ def index_view(request):
         return render(request, 'goods/index.html')
 
 
+@csrf_exempt
 def simple_upload(request):
     if request.method == 'POST':
         myfile1 = request.FILES['file1']
@@ -73,6 +77,7 @@ def simple_upload(request):
     return render(request, 'goods/simple_upload.html')
 
 
+@csrf_exempt
 def test_data(request):
     if request.method == 'GET':
         test_good = Goods()
@@ -92,9 +97,49 @@ def test_data(request):
     return render(request, 'goods/simple_upload.html')
 
 
+@csrf_exempt
 def check_data(request):
     if request.method == 'GET':
         test_good = Goods.objects.get(article_number=123456)
         print(test_good.weight_per_package)
 
-    return render(request, 'goods/simple_upload.html')
+    return render(request, 'goods/index.html')
+
+
+@csrf_exempt
+def reports(request):
+    return render(request, 'goods/reports.html')
+
+
+@csrf_exempt
+def report_by_days(request):
+    if request.method == 'POST':
+        """
+        SELECT c.name AS category, count(*) AS cnt
+        FROM product AS p
+        INNER JOIN category c ON p.category_id = c.category_id
+        GROUP BY p.category_id 
+        """
+        test_good = Goods.objects.get(article_number=123456)
+        print(test_good.weight_per_package)
+        return render(request, 'goods/reports.html')
+
+    return render(request, 'goods/index.html')
+
+
+@csrf_exempt
+def price_difference_report(request):
+    if request.method == 'POST':
+        test_good = Goods.objects.filter(price__lt=F('retail_price')*1.05)
+        root = ET.Element("root")
+        doc = ET.SubElement(root, "report")
+
+        for val in test_good:
+            ET.SubElement(doc, "item").text = str(val.article_number)
+        tree = ET.ElementTree(root)
+        tree.write("price_difference_report.xml")
+
+        # ftp = FTP('ftp_host', 'ftp_user', 'ftp_pass')
+        # ftp.storbinary('STOR price_difference_report.xml', ET.parse(price_difference_report))
+
+    return render(request, 'goods/reports.html')

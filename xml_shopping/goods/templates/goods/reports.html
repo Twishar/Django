@@ -1,0 +1,20 @@
+
+{% extends 'goods/index.html' %}
+{% load static %}
+
+{% block body %}
+    <form action= "{% url 'goods:report_by_days'%}" method="POST">
+        <input type="hidden" name="days_report">
+        <button type="submit" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-cloud-upload"></span>
+        </button>
+    </form>
+
+    <form action= "{% url 'goods:price_difference_report'%}" method="POST">
+        <input type="hidden" name="price_difference">
+        <button type="submit" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-cloud-upload"></span>
+        </button>
+    </form>
+
+{% endblock %}
