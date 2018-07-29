@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+<channel>
+<title>emma products</title>
+<link>https://www.emma.dk</link>
+<description>Google shopping products</description>
+<item>
+<g:id>878</g:id>
+<g:gtin>123456</g:gtin>
+<title>Garnier Respons Shampoo m. advocado 250 ml</title>
+<g:description>Garnier Respons shampoo Advocado Oil Shea butter 250 ml. </g:description>
+<g:product_type>Dame > Shampoo</g:product_type>
+<link>https://www.emma.dk/produkt/garnier-respons-shampoo-m-advocado-250-ml-878.html?g=1</link>
+<guid>https://www.emma.dk/produkt/garnier-respons-shampoo-m-advocado-250-ml-878.html</guid>
+<g:image_link>https://s3.eu-central-1.amazonaws.com/emma-production-gallery/garnier-respons-shampoo-m-advocado-805355-426x426.png</g:image_link>
+<g:condition>new</g:condition>
+<g:availability>out of stock</g:availability>
+<g:price>40</g:price>
+<g:retail-price>40</g:retail-price>
+<g:sale-price>18</g:sale-price>
+<g:brand>Garnier</g:brand>
+<g:delivery-cost>29.00</g:delivery-cost>
+<g:delivery-time>1-2 days</g:delivery-time>
+</item>
+<item>
+<g:id>878</g:id>
+<g:gtin>123156</g:gtin>
+<title>Garnier Respons Shampoo m. advocado 250 ml</title>
+<g:description>Garnier Respons shampoo Advocado Oil Shea butter 250 ml. </g:description>
+<g:product_type>HZ</g:product_type>
+<link>https://www.emma.dk/produkt/garnier-respons-shampoo-m-advocado-250-ml-878.html?g=1</link>
+<guid>https://www.emma.dk/produkt/garnier-respons-shampoo-m-advocado-250-ml-878.html</guid>
+<g:image_link>https://s3.eu-central-1.amazonaws.com/emma-production-gallery/garnier-respons-shampoo-m-advocado-805355-426x426.png</g:image_link>
+<g:condition>new</g:condition>
+<g:availability>out of stock</g:availability>
+<g:price>40</g:price>
+<g:retail-price>40</g:retail-price>
+<g:sale-price>18</g:sale-price>
+<g:brand>Garnier</g:brand>
+<g:delivery-cost>29.00</g:delivery-cost>
+<g:delivery-time>1-2 days</g:delivery-time>
+</item>
+</channel>
+</rss>
