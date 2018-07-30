@@ -8,10 +8,10 @@ app_name = 'goods'
 
 urlpatterns = [
     url(r'^$', views.index_view),
-    url(r'upload_files/', views.simple_upload),
+    url(r'upload_files/', views.simple_upload, name='upload_files'),
     url(r'test_data/', views.test_data),
     url(r'check_data/', views.check_data),
-    url(r'reports/', views.reports),
+    url(r'reports/', views.reports, name='reports'),
     url(r'report_by_days', views.report_by_days, name='report_by_days'),
     url(r'price_difference_report', views.price_difference_report, name='price_difference_report')
 ]

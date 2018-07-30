@@ -22,16 +22,16 @@ def index_view(request):
 @csrf_exempt
 def simple_upload(request):
     if request.method == 'POST':
-        myfile1 = request.FILES['file1']
-        myfile2 = request.FILES['file2']
-        myfile3 = request.FILES['file3']
+        xml_file = request.FILES['file1']
+        csv_articles = request.FILES['file2']
+        csv_new_info = request.FILES['file3']
         g = '{http://base.google.com/ns/1.0}'
-        tree = ET.parse(myfile1)
+        tree = ET.parse(xml_file)
         root = tree.getroot()
         print(root.findall('channel'))
 
-        f = TextIOWrapper(myfile2, encoding=request.encoding)
-        f2 = TextIOWrapper(myfile3, encoding=request.encoding)
+        f = TextIOWrapper(csv_articles, encoding=request.encoding)
+        f2 = TextIOWrapper(csv_new_info, encoding=request.encoding)
 
         data = [row for row in csv.reader(f.read().splitlines())]
         data2 = [row for row in csv.reader(f2.read().splitlines())]
@@ -69,11 +69,10 @@ def simple_upload(request):
 
         # Save docs
         # fs = FileSystemStorage()
-        # fs.save(myfile1.name, myfile1)
-        # fs.save(myfile2.name, myfile2)
-        # fs.save(myfile3.name, myfile3)
+        # fs.save(xml_file.name, xml_file)
+        # fs.save(csv_articles.name, csv_articles)
+        # fs.save(csv_new_info.name, csv_new_info)
 
-        return render(request, 'goods/simple_upload.html')
     return render(request, 'goods/simple_upload.html')
 
 
@@ -115,12 +114,16 @@ def reports(request):
 def report_by_days(request):
     if request.method == 'POST':
         """
-        Запрос не рабочий
+        Запросы не рабочие
+        
         days = Goods.objects.values_list('date_of_creation').distinct()
         num_goods = Goods.objects.filter(date_of_creation=[day for day in days]).aggregate(item_count=Count('category'))
-        print(num_goods[0])
+        
+        //////////////////////////////////////////////////////////////////////////////////////////
+        test = Goods.objects.raw('SELECT COUNT(*) OVER (PARTITION BY date_of_creation, category'
+                                 ' ORDER BY date_of_creation, category) FROM goods')
+        
         """
-
     return redirect('/goods/reports')
 
 
