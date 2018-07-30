@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 
 from ftplib import FTP
 from io import TextIOWrapper
-from django.db.models import F
+from django.db.models import F, Count
 
 from goods.models import Goods
 from django.shortcuts import render, redirect
@@ -100,7 +100,7 @@ def test_data(request):
 @csrf_exempt
 def check_data(request):
     if request.method == 'GET':
-        test_good = Goods.objects.get(article_number=123456)
+        test_good = Goods.objects.get(article_number=9339341002284)
         print(test_good.weight_per_package)
 
     return render(request, 'goods/index.html')
@@ -115,16 +115,13 @@ def reports(request):
 def report_by_days(request):
     if request.method == 'POST':
         """
-        SELECT c.name AS category, count(*) AS cnt
-        FROM product AS p
-        INNER JOIN category c ON p.category_id = c.category_id
-        GROUP BY p.category_id 
+        Запрос не рабочий
+        days = Goods.objects.values_list('date_of_creation').distinct()
+        num_goods = Goods.objects.filter(date_of_creation=[day for day in days]).aggregate(item_count=Count('category'))
+        print(num_goods[0])
         """
-        test_good = Goods.objects.get(article_number=123456)
-        print(test_good.weight_per_package)
-        return render(request, 'goods/reports.html')
 
-    return render(request, 'goods/index.html')
+    return redirect('/goods/reports')
 
 
 @csrf_exempt
@@ -139,7 +136,8 @@ def price_difference_report(request):
         tree = ET.ElementTree(root)
         tree.write("price_difference_report.xml")
 
+        # Никогда не работал с FTP,  поэтому не уверен, будет ли адекватно работать)
         # ftp = FTP('ftp_host', 'ftp_user', 'ftp_pass')
         # ftp.storbinary('STOR price_difference_report.xml', ET.parse(price_difference_report))
 
-    return render(request, 'goods/reports.html')
+    return redirect('/goods/reports')
