@@ -1,12 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from .models import Test, Shop, Consultant, Director
-
-
-class TestSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Test
-        fields = ('title', 'description')
+from .models import Shop, Consultant, Director
 
 
 class ConsultantSerializer(serializers.ModelSerializer):

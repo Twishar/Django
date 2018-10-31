@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="margin: auto; display: table;">
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    <h2 style="text-align: center;">Director panel</h2>
+
+    <ul>
+        {% for shop in shop_info %}
+            <li>
+                {{shop.title}}
+                {% buttons %}
+                    <button onclick="display_shop_info('{{shop.id}}')" class="btn btn-primary">Look shop info</button>
+                    <button onclick="hide_shop_info('{{shop.id}}')" class="btn btn-primary">Hide shop info</button>
+                {% endbuttons %}
+                <div id="{{shop.id}}" style="display: None">
+                {% for consult in shop.consults_info %}
+                    {{consult.name}} : {{consult.sold}} товаров
+                    <br/>
+                {% endfor %}
+                </div>
+            </li>
+            <br/>
+        {% endfor %}
+    </ul>
+
+    <script>
+        function display_shop_info(shop_id) {
+            document.getElementById(shop_id).style.display = "block";
+        }
+        function hide_shop_info(shop_id) {
+            document.getElementById(shop_id).style.display = "None";
+        }
+    </script>
+</body>
+</html>

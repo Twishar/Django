@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Director_panel</title>
+</head>
+<body style="margin: auto; display: table;">
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+
+    <h2 style="text-align: center;">Shop panel</h2>
+    <ul>
+        {% for shop in shop_info %}
+            <li>
+                {{shop.title}}
+                {% buttons %}
+                <button onclick="display_avg('{{shop.id}}')" class="btn btn-primary">Look avg</button>
+                <button onclick="hide_avg('{{shop.id}}')" class="btn btn-primary">Hide avg</button>
+                {% endbuttons %}
+                <p id="{{shop.id}}" style="display: None">Average sales: {{shop.avg}}</p>
+            </li>
+            <br/>
+        {% endfor %}
+    </ul>
+
+    <script>
+        function display_avg(shop_id) {
+            document.getElementById(shop_id).style.display = "block";
+        }
+        function hide_avg(shop_id) {
+            document.getElementById(shop_id).style.display = "None";
+        }
+    </script>
+
+</body>
+</html>

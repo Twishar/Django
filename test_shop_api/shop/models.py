@@ -4,12 +4,6 @@ from django.urls import reverse
 # Create your models here.
 
 
-class Test(models.Model):
-    title = models.CharField(max_length=64)
-    description = models.CharField(max_length=512)
-    wtf_man = models.TextField()
-
-
 class Director(models.Model):
     name = models.CharField(max_length=40)
 
