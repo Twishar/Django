@@ -1,10 +1,8 @@
-from django.shortcuts import render, render_to_response
-from django.contrib.auth.models import User, Group
+from django.shortcuts import render_to_response
 from rest_framework import viewsets
 from shop.serializers import ShopSerializer, DirectorSerializer
 from .models import Consultant, Shop, Director
 from django.contrib import auth
-# Create your views here.
 
 
 def index(request):
@@ -17,12 +15,7 @@ def shop_view(request):
     shop_info = []
     for shop in shops:
         consults = Consultant.objects.filter(shop=shop)
-        avg = 0
-
-        for consult in consults:
-            avg += consult.sold_goods
-        avg = round(avg / 3, 1)
-
+        avg = round(sum([val.sold_goods for val in consults]) / consults.count(), 1)
         shop_info.append({'id': shop.id,
                           "title": shop.shop_title,
                           "avg": avg})
@@ -38,7 +31,6 @@ def director_view(request):
         return render_to_response('shop/index.html')
     else:
         auth_user = auth.get_user(request)
-        print(auth_user)
         director = Director.objects.get(user_id=auth_user)
         shops = Shop.objects.filter(director=director)
         shop_info = []
