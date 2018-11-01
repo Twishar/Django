@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+
+{% block login %}
+
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+
+    <div>
+        <form action="/auth/login/" method="post">
+            {% csrf_token %}
+            <label for="username">Имя пользователя</label>
+            <input type="text" name="username" id="username">
+            <label for="password">Пароль</label>
+            <input type="password" name="password" id="password">
+            {% if login_error %}
+                <label class="errors">{{login_error}}</label>
+            {% endif %}
+            <button class="button btn-primary" type="submit">Войти</button>
+        </form>
+    </div>
+{% endblock %}

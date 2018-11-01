@@ -5,10 +5,11 @@
     <title>Director_panel</title>
 </head>
 <body style="margin: auto; display: table;">
+    {% extends 'base.html' %}
+    {% block content %}
     {% load bootstrap4 %}
     {% bootstrap_css %}
     {% bootstrap_javascript jquery='full' %}
-
     <h2 style="text-align: center;">Shop panel</h2>
     <ul>
         {% for shop in shop_info %}
@@ -32,6 +33,7 @@
             document.getElementById(shop_id).style.display = "None";
         }
     </script>
+    {% endblock %}
 
 </body>
 </html>

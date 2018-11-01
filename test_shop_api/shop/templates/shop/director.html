@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+
+{% extends 'base.html' %}
+
+{% block content %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
 <body style="margin: auto; display: table;">
-    {% load bootstrap4 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript jquery='full' %}
     <h2 style="text-align: center;">Director panel</h2>
 
     <ul>
@@ -37,5 +35,5 @@
             document.getElementById(shop_id).style.display = "None";
         }
     </script>
+    {% endblock %}
 </body>
-</html>

@@ -1,9 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from shop.serializers import ShopSerializer, DirectorSerializer
 from .models import Consultant, Shop, Director
+from django.contrib import auth
 # Create your views here.
+
+
+def index(request):
+    context = {'username': auth.get_user(request).username}
+    return render_to_response('shop/index.html', context)
 
 
 def shop_view(request):
@@ -21,34 +27,41 @@ def shop_view(request):
                           "title": shop.shop_title,
                           "avg": avg})
 
-    context = {'shop_info': shop_info}
+    context = {'shop_info': shop_info,
+               'username': auth.get_user(request).username}
 
-    return render(request, 'shop/shop_info.html', context)
+    return render_to_response('shop/shop_info.html', context)
 
 
 def director_view(request):
-    director = Director.objects.get(id=1)
-    shops = Shop.objects.filter(director=director)
-    shop_info = []
-    for shop in shops:
-        consults = Consultant.objects.filter(shop=shop)
-        avg = 0
-        consults_info = []
-        for consult in consults:
-            consults_info.append({"id": consult.id,
-                                  "name": consult.name,
-                                  "sold": consult.sold_goods})
+    print(auth.get_user(request))
+    print(auth.get_user(request).username)
+    print(auth.get_user(request).is_anonymous)
+    if auth.get_user(request).is_anonymous:
+        return render_to_response('shop/index.html')
+    else:
+        director = Director.objects.get(id=1)
+        shops = Shop.objects.filter(director=director)
+        shop_info = []
+        for shop in shops:
+            consults = Consultant.objects.filter(shop=shop)
+            consults_info = []
+            for consult in consults:
+                consults_info.append({"id": consult.id,
+                                      "name": consult.name,
+                                      "sold": consult.sold_goods})
 
-        shop_info.append({"id": shop.id,
-                          "title": shop.shop_title,
-                          "consults_info": consults_info})
+            shop_info.append({"id": shop.id,
+                              "title": shop.shop_title,
+                              "consults_info": consults_info})
 
-    context = {'shop_info': shop_info}
+        context = {'shop_info': shop_info,
+                   'username': auth.get_user(request).username}
 
-    return render(request, 'shop/director.html', context)
+        return render_to_response('shop/director.html', context)
 
 
-class ShopwViewSet(viewsets.ModelViewSet):
+class ShopViewSet(viewsets.ModelViewSet):
     queryset = Shop.objects.all()
     serializer_class = ShopSerializer
 
