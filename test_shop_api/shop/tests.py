@@ -1,4 +1,5 @@
 import requests
+from django.contrib.auth.models import User
 from django.test import TestCase
 from shop.models import Director, Shop, Consultant
 # Create your tests here.
@@ -8,14 +9,16 @@ class ModelsTestCase(TestCase):
 
     def setUp(self):
         # For 1 director
-        director1 = Director.objects.create(name="Sample Boss")
+        user_id = User.objects.create_user(username="Saple_user", email="sample@gmail.com", password="test_test")
+        director1 = Director.objects.create(user_id=user_id, name="Sample Boss")
         shop1_1 = Shop.objects.create(director=director1, shop_title="Perfect_Shop")
         shop1_2 = Shop.objects.create(director=director1, shop_title="Perfect_Shop2")
         consultant_for_shop1_1 = Consultant.objects.create(shop=shop1_1, name="Alex", sold_goods=5)
         consultant_for_shop1_2 = Consultant.objects.create(shop=shop1_2, name="Tom", sold_goods=8)
 
         # For 2 director
-        director2 = Director.objects.create(name="Little Boss")
+        user_id2 = User.objects.create_user(username="Saple_user2", email="sample2@gmail.com", password="test_test2")
+        director2 = Director.objects.create(user_id=user_id2, name="Little Boss")
         shop2_1 = Shop.objects.create(director=director2, shop_title="Normal_Shop")
         shop2_2 = Shop.objects.create(director=director2, shop_title="Normal_Shop2")
         consultant_for_shop2_1 = Consultant.objects.create(shop=shop2_1, name="Ben", sold_goods=4)

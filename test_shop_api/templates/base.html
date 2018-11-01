@@ -5,13 +5,18 @@
     <title>Title</title>
 </head>
 <body>
+
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+
     <div>
         <section>
             <ul>
                 {% if username %}
-                    <li><a href="/auth/logout/">Выйти ({{username}})</a></li>
+                    <li><a class="fi-account-logout" href="/auth/logout/">Выйти ({{username}})</a></li>
                 {% else %}
-                    <li><a href="/auth/login/">Войти</a></li>
+                    <li><a class="fi-account-login" href="/auth/login/">Войти</a></li>
                 {% endif %}
             </ul>
         </section>

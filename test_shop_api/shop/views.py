@@ -34,13 +34,12 @@ def shop_view(request):
 
 
 def director_view(request):
-    print(auth.get_user(request))
-    print(auth.get_user(request).username)
-    print(auth.get_user(request).is_anonymous)
     if auth.get_user(request).is_anonymous:
         return render_to_response('shop/index.html')
     else:
-        director = Director.objects.get(id=1)
+        auth_user = auth.get_user(request)
+        print(auth_user)
+        director = Director.objects.get(user_id=auth_user)
         shops = Shop.objects.filter(director=director)
         shop_info = []
         for shop in shops:
@@ -56,7 +55,7 @@ def director_view(request):
                               "consults_info": consults_info})
 
         context = {'shop_info': shop_info,
-                   'username': auth.get_user(request).username}
+                   'username': auth_user.username}
 
         return render_to_response('shop/director.html', context)
 
